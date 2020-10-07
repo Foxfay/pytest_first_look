@@ -8,11 +8,19 @@ import logic
 class Test:
     @pytest.mark.base
     def test_list(self):
+        """
+        checking that the function returns a list
+        :return:
+        """
         lst_coords = logic.get_road(1, 2)
         assert isinstance(lst_coords, list), 'return type is not list '
 
     @pytest.mark.base
     def test_type(self):
+        """
+        check type every coordinates in tuple
+        :return:
+        """
         lst_coords = logic.get_road(1, 2)
         for i, coord in enumerate(lst_coords):
             for num in lst_coords[i]:
@@ -20,12 +28,20 @@ class Test:
 
     @pytest.mark.base
     def test_point(self):
+        """
+        checking that the point has 2 coordinates
+        :return:
+        """
         lst_coords = logic.get_road(1, 2)
         for i, coord in enumerate(lst_coords):
             assert len(coord) == 2, 'Point have more 2 coordinates'
 
     @pytest.mark.advanced
     def test_limints(self):
+        """
+        checking coordinate constraints
+        :return:
+        """
         lst_coords = logic.get_road(1, 2)
         for i, coord in enumerate(lst_coords):
             assert (-90) <= lst_coords[i][0], 'longitude is smaller that her limits'
@@ -37,6 +53,10 @@ class Test:
 
     @pytest.mark.advanced
     def test_breakpoint(self):
+        """
+        checking if the route has a breakpoint
+        :return:
+        """
         lst_coords = logic.get_road(1, 2)
         lst_defer_long = []
         for ind, coord in enumerate(lst_coords):
